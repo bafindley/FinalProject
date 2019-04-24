@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>UFO Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">UFO Sightings
+            <img class="nav-ufo" src="ufo.svg">
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="hero text-center">
+      <h1>Movie Predictions</h1>
+      <p>The Truth is Out There</p>
+    </div>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-2">
+          <aside class="filters">
+            <div class="panel panel-default">
+              <div class="panel-heading">Filter Search</div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <ul class="list-group" id="filters">
+                      <li class="filter list-group-item">
+                        <label for="title">Enter a Movie</label>
+                        <input class="form-control" id="title" type="text" placeholder="movie title">
+                      </li>
+                    </ul>
+                  </div>
+                  <button id="filter-btn" type="submit" class="btn btn-default">Filter Table</button>
+                </form>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <body>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <form>
+                  <div class="form-group">
+                    <label for="example-form">Enter your dream movie</label>
+                    <div>
+
+                    </select>
+                    <script src="http://d3js.org/d3.v3.js"></script>
+                    <script>
+                    d3.csv("actor_list.csv", function(error, data) {
+                      var select = d3.select("body")
+                        .append("div")
+                        .append("select")
+
+                      select
+                        .on("change", function(d) {
+                          var value = d3.select(this).property("value");
+                          alert(value);
+                        });
+
+                      select.selectAll("option")
+                        .data(data)
+                        .enter()
+                          .append("option")
+                          .attr("value", function (d) { return d.value; })
+                          .text(function (d) { return d.label; });
+                    });
+                    </script>
+                    <html>
+                      <head>
+                          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                      </head>
+                      <body>
+                      <div id="page-wrap">
+                          <script>
+                              $(function() {
+                                  $("#text-one").change(function() {
+                                      $("#text-two").show();
+                                      $("#text-two").load($(this).val() + ".txt");
+                                  });
+                              });
+                          </script>
+                          <h1>Please select from drop down menus</h1>
+                          <select id="text-one">
+                              <option selected value="base">Please Select</option>
+                              <option value="country">Country</option>
+                              <option value="genre">Genre</option>
+                              <option value="language">Language</option>
+                              <option value="rated">Rated</option>
+                          </select>
+                          <br />
+                          <select id="text-two" style="display :none">
+                              <option>Please choose from above</option>
+                          </select>
+                      </div>
+                      </body>
+                      </html>
+                    <label>Actors</label><input class="form-control" id="actorList" name="example-form" type="text" size=100>
+                    <label>Director</label><input class="form-control" id="director" name="example-form" type="text" size=25>
+                    <label>Metascore</label><input class="form-control" id="metascore" name="example-form" type="text" size=25>
+                    <label>Production</label><input class="form-control" id="production" name="example-form" type="text" size=150>
+                    <label>Run Time</label><input class="form-control" id="durationMinutes" name="example-form" type="text" size= 25>
+                    <label>Writer</label><input class="form-control" id="writer" name="example-form" type="text" size=150>
+                    <label>Budget</label><input class="form-control" id="budget" name="example-form" type="text" size=25>
+                    <label>Popularity</label><input class="form-control" id="popularity" name="example-form" type="text" size=25>
+                  </div></div>
+                  <button id="submit" type="submit" class="btn btn-default">Submit</button>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <h1>Form Data:
+                  <span></span>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </body>
+        <div class="col-md-10">
+          <div id="table-area" class="">
+            <table id="ufo-table" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="table-head">Actors</th>
+                  <th class="table-head">Awards</th>
+                  <th class="table-head">Country</th>
+                  <th class="table-head">Director</th>
+                  <th class="table-head">Genre</th>
+                  <th class="table-head">Language</th>
+                  <th class="table-head">Metascore</th>
+                  <th class="table-head">Plot</th>
+                  <th class="table-head">Production</th>
+                  <th class="table-head">Rated</th>
+                  <th class="table-head">Ratings</th>
+                  <th class="table-head">Released</th>
+                  <th class="table-head">Run Time</th>
+                  <th class="table-head">Title</th>
+                  <th class="table-head">Type</th>
+                  <th class="table-head">Writer</th>
+                  <th class="table-head">Year</th>
+                  <th class="table-head">IMDB ID</th>
+                  <th class="table-head">IMDB Rating</th>
+                  <th class="table-head">Budget</th>
+                  <th class="table-head">Popularity</th>
+                  <th class="table-head">Profitable</th>
+                  <th class="table-head">IMDB Language</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <span class="bottom">Movie Listing</span>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="data_movie.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
